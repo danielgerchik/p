@@ -1,0 +1,113 @@
+.about {
+height: 100vh;
+display: flex;
+align-items: center;
+flex-direction: column;
+justify-content: center;
+}
+.text_wrap {
+    position: relative;
+    text-align: center;
+}
+
+.bg_blob {
+    position: absolute;
+    z-index: -1;
+    width: 300px;
+    opacity: .1;
+}
+#blob_1 {
+    top: 0;
+    right: 0;
+    @media screen and (max-width: 767px) {
+        right: 50%;
+    }
+}
+#blob_2 {
+    top: 35%;
+    left: 30%;
+    transform: rotate(90deg);
+}
+.title {
+    position: relative;
+    display: inline-block;
+    font-weight: 700;
+    font-size: 65px;
+    margin-bottom: .7em;
+    padding-bottom: .1em;
+    @media screen and (max-width: 1392px) {
+        margin-bottom: .5em;
+    }
+    @media screen and (max-width: 1072px) {
+        position: absolute;
+        top: -9999%;
+        left: -9999%;
+        opacity: 0;
+    }
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 5px;
+        background-color: #000;
+    }
+}
+.main_text {
+    font-size: 40px;
+    margin-bottom: 2em;
+    @media screen and (max-width: 1392px) {
+        margin-bottom: 1em;
+    }
+    @media screen and (max-width: 639px) {
+        font-size: 6vw;
+    }
+    .popup_text {
+        height: 1em;
+        display: inline-block;
+        overflow: hidden;
+        vertical-align: top;
+        span {
+            display: inline-block;
+            transform: translateY(-100%);
+            animation: show_text 1s ease 2.5s forwards;
+            @media screen and (max-width: 1072px) {
+                font-weight: 700;
+            }
+        }
+    }
+
+}
+
+.label {
+    font-size: 45px;
+    font-weight: 700;
+    margin-bottom: 1.2em;
+    @media screen and (max-width: 1392px) {
+        margin-bottom: 0.7em;
+    }
+    @media screen and (max-width: 639px) {
+        font-size: 7vw;
+    }
+}
+.stack_items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 80.5%;
+    margin: -1.5em auto 0 auto;
+    @media screen and (max-width: 1700px) and (min-width: 1417px) {
+        width: 51%;
+    }
+    @media screen and (max-width: 639px) {
+        width: 100%;
+    }
+
+}
+
+@keyframes show_text {
+    100% {
+        transform: translateY(0%);
+    }
+}

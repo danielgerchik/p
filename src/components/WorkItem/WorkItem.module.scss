@@ -1,0 +1,62 @@
+.item {
+    &:not(:first-of-type) {
+        border-top: 5px solid #000;
+        @media screen and (max-width: 500px) {
+            border-top: 3px solid #000;
+        }
+    }
+    &:not(:last-of-type) {
+        border-bottom: 5px solid #000;
+        @media screen and (max-width: 500px) {
+            border-bottom: 3px solid #000;
+        }
+    }
+    .name {
+        color: #000;
+        text-decoration: none;
+        font-size: 100px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-right: 50px;
+        transition: .3s ease 0s;
+        @media screen and (max-width: 910px) {
+            font-size: 10vw;
+        }
+        @media screen and (max-width: 767px) {
+            padding-right: 0px;
+        }
+        &:hover {
+            transform: skewX(-15deg);
+        }
+    }
+    .arrow {
+        img {
+            width: 120px;
+            @media screen and (max-width: 767px) {
+                width: 18.5vw;
+            }
+        }
+    }
+    .link_img {
+        position: absolute;
+        top: -999%;
+        left: -999%;
+        opacity: 0;
+        pointer-events: none;
+        object-fit: cover;
+        width: 250px;
+        height: 250px;
+        transform: translate(-50%, -50%);
+        @media screen and (max-width: 767px) {
+            display: none;
+        }
+    }
+    &:hover {
+        .link_img {
+            opacity: 1;
+        }
+        
+    }
+}

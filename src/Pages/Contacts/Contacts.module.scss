@@ -1,0 +1,119 @@
+.contacts {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    &.mb {
+        .item {
+            a {
+                color: #000;
+            }
+        }
+    }
+}
+.items {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    @media screen and (max-width: 767px) {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+.line_bg {
+position: absolute;
+width: 90%;
+height: 100px;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+border-radius: 20px;
+border: 10px solid RGBA(0,0,0,0.1);
+}
+.item {
+    position: relative;
+    z-index: 60;
+    overflow: hidden;
+    pointer-events: none;
+    &:not(:last-child) {
+        @media screen and (max-width: 767px) {
+            margin-bottom: 2em;
+        }
+    }
+    svg {
+        width: 350px;
+        @media screen and (max-width: 1415px) {
+            width: 300px;
+        }
+        @media screen and (max-width: 1225px) {
+            display: none;
+        }
+        path {
+            transition: .3s ease 0s;
+        }
+    }
+    .link_field {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        pointer-events: auto;
+        @media screen and (max-width: 1225px) {
+            position: static;
+            transform: translate(0, 0);
+        }
+    }
+    a {
+        position: relative;
+        text-decoration: none;
+        font-size: 40px;
+        color: #000;
+        transition: 1s ease 0s;
+        @media screen and (max-width: 1225px) and (min-width: 768px) {
+            color: #fff;
+        }
+        @media screen and (max-width: 767px) {
+            font-size: 45px
+        }
+        &::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -75%;
+            width: 10px;
+            height: 10px;
+            background-color: #000;
+            border-radius: 50%;
+            pointer-events: none;
+            transition: 1s ease 0s;
+            transform: scale(0);
+            @media screen and (max-width: 1225px) {
+                background-color: #fff;
+            }
+        }
+        &:hover {
+            &::before {
+                pointer-events: auto;
+                animation: circle_hover 1s ease forwards;
+            }
+        }
+    }
+    &.active {
+        svg {
+            path {
+                fill: #000;
+            }
+        }
+        a {
+            color: #fff;
+        }
+    }
+}
+
+@keyframes circle_hover {
+    100% {
+        transform: scale(3);
+    }
+}
